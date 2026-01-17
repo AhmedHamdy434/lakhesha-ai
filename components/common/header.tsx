@@ -24,11 +24,11 @@ export default function Header() {
             <NavLink href="/dashboard">ملخصاتي</NavLink>
           </SignedIn>
         </div>
-        <div className="flex lg:justify-end lg:flex-1">
+        <div className="flex lg:justify-end items-center gap-2 lg:flex-1">
+          <ModeToggle />
           <SignedIn>
             <div className="flex items-center gap-2">
               <PlanBadge />
-              <ModeToggle />
               <SignedIn>
                 <UserButton />
               </SignedIn>
