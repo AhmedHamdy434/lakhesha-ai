@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { Calendar, ChevronLeft, Clock, Sparkles } from "lucide-react";
+import { Calendar, ChevronRight, Clock, Sparkles } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { MotionDiv, MotionH1 } from "../common/motion-wrapper";
 
@@ -25,7 +25,7 @@ export default function SummaryHeader({
             <Badge
               variant="secondary"
               className="text-sm relative px-4 py-1.5 font-medium bg-white/80 backdrop-blur-xs rounded-full shadow-xs
-          transition-all duration-200 hover:bg-white/90 hover:shadow-md"
+          transition-all duration-200 hover:bg-white/90 dark:bg-white/10 dark:hover:text-white hover:shadow-md"
             >
               <Sparkles className="size-4 text-rose-500 me-1.5" />
               ملخص الذكاء الاصطناعي
@@ -35,10 +35,10 @@ export default function SummaryHeader({
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center gap-2 text-sm text-muted-foreground"
+            className="flex items-center gap-2 text-sm text-muted-foreground dark:text-white"
           >
             <Calendar className="size-4 text-rose-400" />
-            {new Date(created_at).toLocaleDateString("en-US", {
+            {new Date(created_at).toLocaleDateString("ar-EG", {
               year: "numeric",
               month: "long",
               day: "numeric",
@@ -48,7 +48,7 @@ export default function SummaryHeader({
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex items-center gap-2 text-sm text-muted-foreground"
+            className="flex items-center gap-2 text-sm text-muted-foreground dark:text-white"
           >
             <Clock className="size-4 text-rose-400" />
             {readingTime} دقيقة قراءة
@@ -75,9 +75,10 @@ export default function SummaryHeader({
             variant="link"
             size="sm"
             className="group flex items-center gap-1 sm:gap-2 hover:bg-white/80 backdrop-blur-xs rounded-full
-          transition-all duration-200 shadow-xs hover:shadow-md border border-rose-100/30 bg-rose-100 px-2 sm:px-3"
+          transition-all duration-200 shadow-xs hover:shadow-md border border-rose-100/30 bg-rose-100 px-2 sm:px-3 
+          dark:bg-rose-900/10 dark:hover:bg-rose-900/20 dark:border-rose-900/30 dark:text-white"
           >
-            <ChevronLeft className="size-3 sm:size-4 text-rose-500 transition-transform group-hover:translate-x-0.5" />
+            <ChevronRight className="size-3 sm:size-4 text-rose-500 transition-transform group-hover:translate-x-0.5" />
             <span className="text-xs sm:text-sm font-medium text-muted-foreground">
               رجوع <span className="hidden sm:inline">إلى لوحة التحكم</span>
             </span>

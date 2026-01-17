@@ -33,7 +33,7 @@ const UploadFormInput = ({
             className={cn("", isLoading && "cursor-not-allowed opacity-50")}
             disabled={isLoading}
           />
-          <Button disabled={isLoading}>
+          <Button className="bg-rose-600 dark:bg-rose-400 text-white dark:text-black" disabled={isLoading}>
             {isLoading ? (
               <>
                 <Loader2 className="me-2 h-4 w-4 animate-spin" /> جاري المعالجة...

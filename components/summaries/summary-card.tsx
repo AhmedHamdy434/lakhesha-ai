@@ -4,6 +4,7 @@ import DeleteButton from "./delete-button";
 import { FileText } from "lucide-react";
 import { cn, formatFileName } from "@/lib/utils";
 import { formatDistanceToNow } from "date-fns";
+import { ar } from "date-fns/locale";
 
 const SummaryHeader = ({
   fileUrl,
@@ -18,11 +19,14 @@ const SummaryHeader = ({
     <div className="flex items-start gap-2 sm:gap-4">
       <FileText className="size-6 sm:size-8 text-rose-400 mt-1" />
       <div className="flex-1 min-w-0">
-        <h3 className="text-base xl:text-lg font-semibold text-gray-900 truncate w-4/5">
+        <h3 className="text-base xl:text-lg font-semibold text-gray-900 dark:text-gray-100 truncate w-4/5">
           {title || formatFileName(fileUrl)}
         </h3>
-        <p className="text-sm text-gray-500">
-          {formatDistanceToNow(new Date(createdAt), { addSuffix: true })}
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          {formatDistanceToNow(new Date(createdAt), {
+            addSuffix: true,
+            locale: ar,
+          })}
         </p>
       </div>
     </div>
@@ -47,7 +51,7 @@ const SummaryCard = ({ summary }: { summary: any }) => {
   return (
     <Card className="relative h-full">
       <div className="absolute top-2 end-2">
-        <DeleteButton summaryId={summary.id}/>
+        <DeleteButton summaryId={summary.id} />
       </div>
       <Link href={`/summaries/${summary.id}`}>
         <div className="block p-4 sm:p-6">
@@ -57,7 +61,7 @@ const SummaryCard = ({ summary }: { summary: any }) => {
               title={summary.title}
               createdAt={summary.created_at}
             />
-            <p className="text-sm text-gray-600 line-clamp-2 sm:text-base ps-2">
+            <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 sm:text-base ps-2">
               {summary.summary_text}
             </p>
             <div className="flex justify-between items-center mt-2 sm:mt-4">

@@ -41,24 +41,28 @@ const DeleteButton = ({ summaryId }: DeleteButtonProps) => {
           variant="ghost"
           size="icon"
           className="text-gray-400 bg-gray-50 border
-        border-gray-200 hover:bg-rose-50 hover:text-rose-600"
+        border-gray-200 hover:bg-rose-50 hover:text-rose-600 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
           <Trash2 className="size-4" />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>حذف الملخص</AlertDialogTitle>
-          <AlertDialogDescription>
+          <AlertDialogTitle className="text-start">حذف الملخص</AlertDialogTitle>
+          <AlertDialogDescription className="text-start">
             هل أنت متأكد من رغبتك في حذف هذا الملخص؟ لا يمكن التراجع عن هذا
             الإجراء.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel className="hover:text-gray-600 hover:bg-gray-100">
+          <AlertDialogCancel className="hover:text-gray-600 hover:bg-gray-100 dark:hover:text-gray-300 dark:hover:bg-transparent">
             إلغاء
           </AlertDialogCancel>
-          <AlertDialogAction onClick={handleDelete} disabled={isPending}>
+          <AlertDialogAction
+            onClick={handleDelete}
+            disabled={isPending}
+            className="bg-destructive"
+          >
             {isPending ? "جاري الحذف..." : "حذف"}
           </AlertDialogAction>
         </AlertDialogFooter>

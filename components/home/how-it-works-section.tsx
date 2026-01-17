@@ -1,4 +1,4 @@
-import { BrainCircuit, FileOutput, FileText, MoveRight } from "lucide-react";
+import { BrainCircuit, FileOutput, FileText, MoveLeft } from "lucide-react";
 import { MotionDiv, MotionH2, MotionH3 } from "../common/motion-wrapper";
 
 type Step = {
@@ -14,31 +14,19 @@ const steps: Step[] = [
   },
   {
     icon: <BrainCircuit size={64} strokeWidth={1.5} />,
-    label: "اختر نوع الملخص",
-    description: "اختر نوع الملخص الذي تريده",
+    label: "تحليل بالذكاء الاصطناعي",
+    description: "يقوم نظام الذكاء الاصطناعي المتقدم لدينا بمعالجة مستندك وتحليله فورًا.",
   },
   {
     icon: <FileOutput size={64} strokeWidth={1.5} />,
     label: "احصل على الملخص",
-    description: "احصل على الملخص في ثوانٍ",
+    description: "احصل على الملخص في ثوانٍ باللغة العربية",
   },
 ];
 const HowItWorksSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gray-50">
+    <section className="relative overflow-hidden">
       <div className="py-12 lg:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 transform-gpu overflow-hidden blur-3xl"
-        >
-          <div
-            className="relative left-[calc(50%-3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-br from-emerald-500 via-teal-500 to-cyan-500 opacity-20 sm:left-[calc(40%-30rem)] sm:w-160.75"
-            style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-            }}
-          ></div>
-        </div>
         <div className="text-center mb-16">
           <MotionH2
             initial={{ opacity: 0, y: 50 }}
@@ -54,7 +42,7 @@ const HowItWorksSection = () => {
             transition={{ duration: 0.5 }}
             className="font-bold text-3xl max-w-2xl mx-auto"
           >
-            حوّل أي ملف PDF إلى ملخص سهل القراءة في ثلاث خطوات بسيطة
+            حوّل أي ملف PDF إلى ملخص سهل القراءة باللغة العربية في ثلاث خطوات بسيطة
           </MotionH3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
@@ -71,10 +59,10 @@ const HowItWorksSection = () => {
                 <MotionDiv
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 +0.3}}
-                  className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10"
+                  transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+                  className="hidden md:block absolute top-1/2 -end-4 transform -translate-y-1/2 z-10"
                 >
-                  <MoveRight
+                  <MoveLeft
                     size={32}
                     strokeWidth={1}
                     className="text-rose-400"
@@ -99,7 +87,7 @@ function StepItem({ icon, label, description }: Step) {
         </div>
         <div className="flex flex-col flex-1 gap-1 justify-between">
           <h4 className="text-center font-bold text-xl">{label}</h4>
-          <p className="text-center text-gray-600 text-sm">{description}</p>
+          <p className="text-center text-gray-600 dark:text-gray-400 text-sm">{description}</p>
         </div>
       </div>
     </div>

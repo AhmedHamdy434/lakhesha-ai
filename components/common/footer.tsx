@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center rounded-lg bg-primary p-2 text-primary-foreground">
+              <div className="flex items-center justify-center rounded-lg bg-rose-500 p-2 text-primary-foreground">
                 <svg
                   className="size-6"
                   fill="none"
@@ -24,25 +24,25 @@ export default function Footer() {
               </div>
               <span className="text-lg font-bold">لخصها</span>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-gray-500 dark:text-gray-200">
               ملخصات ذكية للمستندات الطويلة
             </p>
           </div>
           <div className="flex gap-4">
             <Link
-              className="text-sm text-muted-foreground hover:text-foreground"
+              className="text-sm text-gray-500 dark:text-gray-200 hover:text-foreground"
               href="#"
             >
               الشروط والأحكام
             </Link>
             <Link
-              className="text-sm text-muted-foreground hover:text-foreground"
+              className="text-sm text-gray-500 dark:text-gray-200 hover:text-foreground"
               href="#"
             >
               سياسة الخصوصية
             </Link>
             <Link
-              className="text-sm text-muted-foreground hover:text-foreground"
+              className="text-sm text-gray-500 dark:text-gray-200 hover:text-foreground"
               href="#"
             >
               اتصل بنا

@@ -8,7 +8,6 @@ export async function getPriceId(email: string) {
   const query =
     await sql`SELECT price_id FROM users WHERE email = ${email} AND status = 'active'`;
 const priceId = query[0]?.price_id;
-console.log("priceId", priceId);
   return priceId || null;
 }
 

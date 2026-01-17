@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { getSummaries } from "@/lib/summaries";
 import { hasReachedUploadLimit } from "@/lib/users";
 import { currentUser } from "@clerk/nextjs/server";
-import { ArrowRight, Plus } from "lucide-react";
+import { ArrowLeft, Plus } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import {
@@ -34,7 +34,7 @@ const DashboardPage = async () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-4xl font-bold tracking-tight bg-linear-to-r from-gray-600 to-gray-900 bg-clip-text text-transparent"
+                className="text-4xl font-bold tracking-tight bg-linear-to-r from-gray-600 to-gray-900 dark:from-gray-500 dark:to-gray-300 bg-clip-text text-transparent"
               >
                 ملخصاتك
               </MotionH1>
@@ -42,7 +42,7 @@ const DashboardPage = async () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-gray-600"
+                className="text-gray-600 dark:text-gray-400"
               >
                 حول ملفاتك إلى ملخصات ذكية
               </MotionP>
@@ -84,7 +84,7 @@ const DashboardPage = async () => {
                     className="text-rose-800 underline font-medium underline-offset-4 inline-flex items-center"
                   >
                     اضغط هنا للترقية إلى برو{" "}
-                    <ArrowRight className="size-4 inline-block" />{" "}
+                    <ArrowLeft className="size-4 inline-block" />{" "}
                   </Link>
                   للحصول على ملخصات غير محدودة
                 </p>

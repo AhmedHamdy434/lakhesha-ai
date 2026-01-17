@@ -24,10 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <ClerkProvider>
-        <html lang="ar" dir="rtl" suppressHydrationWarning>
-          <body className={`${cairoPlay.variable} antialiased`}>
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
+      <body className={`${cairoPlay.variable} antialiased`}>
+        <ClerkProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="flex flex-col min-h-screen">
               <Header />
               <main className="flex-1">{children}</main>
@@ -38,9 +38,9 @@ export default function RootLayout({
               duration={5000}
               style={{ zIndex: 9999 }}
             />
-          </body>
-        </html>
-      </ClerkProvider>
-    </ThemeProvider>
+          </ThemeProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }

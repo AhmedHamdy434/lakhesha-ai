@@ -27,10 +27,9 @@ export default async function SummaryPage({
   } = summary;
   const readingTime = Math.ceil((word_count || 0) / 200);
   return (
-    <div className="relative min-h-screen isolate bg-linear-to-b from-rose-50/40 to-white">
-      <BgGradient className="from-rose-400 via-rose-400 to-orange-200" />
+    <div className="relative min-h-screen isolate bg-linear-to-b from-rose-50/40 to-white dark:bg-linear-to-raa dark:from-rose-900/10 dark:via-rose-900/10 dark:to-black">
       <div className="container mx-auto flex flex-col gap-4">
-        <div className="px-4 sm:px-6 lg:px-8 sm:py-12 lg:py-24">
+        <div className="px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
           <div className="flex flex-col">
             <SummaryHeader
               title={title}
@@ -52,7 +51,7 @@ export default async function SummaryPage({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="relative p-4 sm:p-6 lg:p-8 bg-white/80 backdrop-blur-md rounded-2xl
+              className="relative p-4 sm:p-6 lg:p-8 bg-white/80 dark:bg-white/10 backdrop-blur-md rounded-2xl
             sm:rounded-3xl shadow-3xl border border-rose-100/30 transition-all duration-300 hover:shadow-2xl
             hover:bg-white/90 max-w-3xl mx-auto"
             >

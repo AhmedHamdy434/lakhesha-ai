@@ -10,7 +10,6 @@ const UploadPage = async () => {
   if (!user?.id) {
     return redirect("/sign-in");
   }
-  const userId = user.id;
   const { hasReachedLimit } = await hasReachedUploadLimit(user);
   if (hasReachedLimit) {
     return redirect("/dashboard");

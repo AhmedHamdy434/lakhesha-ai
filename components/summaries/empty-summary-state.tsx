@@ -11,21 +11,21 @@ export default function EmptySummaryState() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <FileText className="size-4 text-gray-400" />
+        <FileText className="size-6 text-gray-400" />
       </MotionDiv>
       <MotionH2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="text-xl font-semibold text-gray-600"
+        className="text-xl font-semibold text-gray-600 dark:text-gray-400"
       >
-        No summaries yet
+        لا يوجد ملخصات بعد
       </MotionH2>
       <MotionP
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-gray-500 max-w-md"
+        className="text-gray-500 max-w-md dark:text-gray-400"
       >
         قم برفع أول ملف PDF للبدء في إنشاء الملخصات الذكية.
       </MotionP>

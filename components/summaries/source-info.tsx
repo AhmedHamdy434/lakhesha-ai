@@ -31,7 +31,7 @@ export default function SourceInfo({
         <Button
           variant="ghost"
           size="sm"
-          className="h-8 px-3 text-rose-600 hover:text-rose-700 hover:bg-rose-50"
+          className="h-8 px-3 text-rose-600 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-900/20"
           asChild
         >
           <a href={original_file_url} target="_blank" rel="noopener noreferrer">

@@ -50,7 +50,7 @@ export const LoadingSkeleton = () => {
 
 function SkeletonBox({ className }: { className?: string }) {
   return (
-    <div className={`relative overflow-hidden bg-muted ${className}`}>
+    <div className={`relative overflow-hidden bg-rose-500/10 ${className}`}>
       <Shimmer />
     </div>
   );

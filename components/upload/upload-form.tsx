@@ -25,7 +25,7 @@ const schema = z.object({
 });
 
 const UploadForm = () => {
-  const { startUpload, routeConfig } = useUploadThing("pdfUploader", {
+  const { startUpload } = useUploadThing("pdfUploader", {
     onUploadError: (error) => {
       toast.error(error.message ?? "فشل رفع الملف");
     },
@@ -53,8 +53,6 @@ const UploadForm = () => {
       const uploading = startUpload([file]);
       toast.promise(uploading, {
         loading: "جاري رفع الملف...",
-        success:
-          "جاري معالجة الملف... يرجى الانتظار! الذكاء الاصطناعي يقرأ المستند الخاص بك",
         error: "فشل رفع الملف",
       });
       const resp = await uploading;
@@ -68,7 +66,6 @@ const UploadForm = () => {
       const summaryPromise = generatePdfSummary(resp);
       toast.promise(summaryPromise, {
         loading: "جاري إنشاء الملخص...",
-        success: "تم إنشاء الملخص بنجاح",
         error: "فشل إنشاء الملخص",
       });
       const result = await summaryPromise;
@@ -79,20 +76,14 @@ const UploadForm = () => {
         if (data.summary) {
           const storePromise = storePdfSummaryAction({
             summary: data.summary,
-            fileUrl: resp[0].serverData.uploadedBy,
+            fileUrl: resp[0].ufsUrl,
             title: data.title,
             fileName: file.name,
-          });
-          toast.promise(storePromise, {
-            loading: "جاري حفظ الملخص...",
-            success: "تم حفظ الملخص بنجاح",
-            error: "فشل حفظ الملخص",
           });
           storeResult = await storePromise;
           if (storeResult.success) {
             toast.success(message ?? "تم حفظ الملخص بنجاح", {
-              description:
-                "تم تلخيص وحفظ ملف الـ PDF الخاص بك بنجاح",
+              description: "تم تلخيص وحفظ ملف الـ PDF الخاص بك بنجاح",
             });
           } else {
             toast.error(storeResult.message);

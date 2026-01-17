@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowLeft, Sparkles } from "lucide-react";
 import BgGradient from "./bg-gradient";
 import { Button } from "../ui/button";
 import Link from "next/link";
@@ -15,10 +15,10 @@ export default function UpgradeRequired() {
               ميزة مدفوعة
             </span>
           </div>
-          <h1 className="text-4xl font-bold tracking-tight bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold tracking-tight bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent dark:bg-linear-to-r dark:from-gray-200 dark:to-gray-600">
             مطلوب ترقية
           </h1>
-          <p className="text-lg text-gray-600 leading-8 border-2 border-rose-200 bg-white/50 backdrop-blur-xs rounded-lg p-6 border-dashed max-w-xl">
+          <p className="text-lg text-gray-600 dark:text-gray-200 leading-8 border-2 border-rose-200 bg-white/50 backdrop-blur-xs rounded-lg p-6 border-dashed max-w-xl">
             تحتاج إلى الترقية إلى الخطة الأساسية أو الخطة الاحترافية للوصول إلى هذه
             الميزة.
           </p>
@@ -27,7 +27,7 @@ export default function UpgradeRequired() {
             className="bg-linear-to-r from-rose-500 to-rose-700 hover:from-rose-600 hover:to-rose-800 text-white"
           >
             <Link href="/#pricing" className="flex items-center gap-2">
-              عرض خطط الأسعار <ArrowRight className="size-4" />
+              عرض خطط الأسعار <ArrowLeft className="size-4" />
             </Link>
           </Button>
         </div>

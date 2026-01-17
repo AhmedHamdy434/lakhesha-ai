@@ -6,7 +6,7 @@ import {
   pricePlans,
   PricingPlan,
 } from "@/utils/constants";
-import { ArrowRight, CheckIcon } from "lucide-react";
+import { ArrowLeft, CheckIcon } from "lucide-react";
 import Link from "next/link";
 import { MotionDiv, MotionSection } from "../common/motion-wrapper";
 
@@ -100,7 +100,7 @@ const PricingCard = ({
             )}
             href={paymentLink}
           >
-            اشترك الآن <ArrowRight size={18} />
+            اشترك الآن <ArrowLeft size={18} />
           </Link>
         </MotionDiv>
       </div>

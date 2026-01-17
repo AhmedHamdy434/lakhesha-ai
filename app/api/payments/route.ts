@@ -24,14 +24,12 @@ export const POST = async (req: NextRequest) => {
         const session = await stripe.checkout.sessions.retrieve(sessionId, {
           expand: ["line_items"],
         });
-        console.log("session in route", session);
         await handleCheckoutSessionCompleted(session, stripe);
         break;
       // if the subscription is deleted
       case "customer.subscription.deleted":
         const subscriptionIdDeleted = event.data.object.id;
         const subscription = event.data.object;
-        console.log("Subscription was deleted!", subscription);
         await handleSubscriptionDeleted(subscriptionIdDeleted, stripe);
         break;
       default:

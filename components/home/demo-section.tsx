@@ -20,7 +20,7 @@ const DemoSection = () => {
           ></div>
         </div>
         <div className="flex flex-col items-center text-center space-y-4">
-          <div className="inline-flex items-center justify-center p-2 rounded-2xl bg-gray-100/80 backdrop-blur-xs border border-gray-500/20 mb-4">
+          <div className="inline-flex items-center justify-center p-2 rounded-2xl bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-xs border border-gray-500/20 mb-4">
             <Pizza className="w-6 h-6 text-rose-500" />
           </div>
           <div className="text-center mb-16">
