@@ -25,26 +25,30 @@ export default function NavigationControls({
           size="icon"
           onClick={onPrevious}
           disabled={currentSection === 0}
+          aria-label="القسم السابق"
           className={cn(
-            "rounded-full size-12 transition-all duration-200 bg-linear-to-br from-rose-500 to-rose-600 backdrop-blur-xs border border-rose-500/10",
+            "rounded-full size-12 transition-all duration-200 bg-linear-to-br from-rose-500 to-rose-600 backdrop-blur-xs border border-rose-500/10 hover:text-white",
             currentSection === 0 && "opacity-50 hover:bg-rose-500/20"
           )}
         >
-          <ChevronRight className="size-6" />
+          <ChevronRight className="size-6 text-white" aria-hidden="true" />
         </Button>
+
         <div className="flex gap-2">
           {Array.from({ length: totalSections }, (_, index) => (
             <button
               key={index}
               onClick={() => onSectionSelect(index)}
+              aria-label={`انتقال إلى القسم ${index + 1}`}
               className={cn(
                 "size-2 rounded-full transition-all duration-300",
                 currentSection === index
                   ? "bg-linear-to-r from-rose-500 to-rose-600"
-                  : "bg-rose-500/20 hover:bg-rose-500/30"
+                  : "bg-rose-500/40 hover:bg-rose-500/60"
               )}
             >
             </button>
+
           ))}
         </div>
         <Button
@@ -52,13 +56,15 @@ export default function NavigationControls({
           size="icon"
           onClick={onNext}
           disabled={currentSection === totalSections - 1}
+          aria-label="القسم التالي"
           className={cn(
-            "rounded-full size-12 transition-all duration-200 bg-linear-to-br from-rose-500 to-rose-600 backdrop-blur-xs border border-rose-500/10",
+            "rounded-full size-12 transition-all duration-200 bg-linear-to-br from-rose-500 to-rose-600 backdrop-blur-xs border border-rose-500/10 hover:text-white",
             currentSection === totalSections - 1 && "opacity-50 hover:bg-rose-500/20"
           )}
         >
-          <ChevronLeft className="size-6" />
+          <ChevronLeft className="size-6 text-white" aria-hidden="true" />
         </Button>
+
       </div>
     </div>
   );

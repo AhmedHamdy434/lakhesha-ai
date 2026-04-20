@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
+
+
 import { MotionSection } from "../common/motion-wrapper";
 
 const CtaSection = () => {
@@ -12,27 +14,23 @@ const CtaSection = () => {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               هل أنت مستعد لتوفير ساعات من وقت القراءة؟
             </h2>
-            <p className="mx-auto max-w-[700px] text-gray-500 dark:text-gray-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed ">
+            <p className="mx-auto max-w-[700px] text-gray-700 dark:text-gray-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed ">
               حوّل المستندات الطويلة إلى رؤى واضحة وقابلة للتنفيذ مع ملخصنا المدعوم بالذكاء الاصطناعي.
             </p>
+
           </div>
-          <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
             <div className="">
-              <Button
-                size="lg"
-                variant="link"
-                className="w-full min-[400px]:w-auto bg-linear-to-r from-slate-900 to-rose-500 hover:from-rose-500 hover:to-slate-900 hover:text-white text-white transition-all duration-300"
+              <Link
+                href="/#pricing"
+                aria-label="ابدأ الآن وجرب لخصها"
+                className={cn(
+                  "inline-flex items-center justify-center w-full min-[400px]:w-auto bg-linear-to-r from-slate-900 to-rose-500 hover:from-rose-500 hover:to-slate-900 hover:text-white text-white transition-all duration-300 rounded-full px-8 py-4 font-bold shadow-lg h-14"
+                )}
               >
-                <Link
-                  className="flex items-center justify-center"
-                  href="/#pricing"
-                >
-                  ابدأ الآن{" "}
-                  <ArrowLeft className="ml-2 size-4 animate-pulse" />
-                </Link>
-              </Button>
+                ابدأ الآن <ArrowLeft className="ml-2 size-4 animate-pulse" aria-hidden="true" />
+              </Link>
             </div>
-          </div>
+
         </div>
       </div>
     </MotionSection>

@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
 import { ArrowLeft, Sparkles } from "lucide-react";
 import { Badge } from "../ui/badge";
 import Link from "next/link";
@@ -34,9 +35,10 @@ const HeroSection = () => {
           className="px-6 py-2 font-medium bg-white rounded-full group-hover:bg-gray-50
           transition-colors duration-200"
         >
-          <Sparkles className="size-6! me-2 text-rose-200 dark:text-rose-500 animate-pulse" />
+          <Sparkles className="size-6! me-2 text-rose-600 animate-pulse" aria-hidden="true" />
           <p className="text-rose-600 text-base">لخصها بالذكاء الاصطناعي</p>
         </Badge>
+
       </MotionDiv>
       <MotionH1 variants={itemVariants} className="font-bold py-6 text-center">
         حوّل ملفات PDF إلى
@@ -54,23 +56,25 @@ const HeroSection = () => {
       <MotionH2
         variants={itemVariants}
         className="text-center text-lg sm:text-xl lg:text-2xl px-4 lg:px-0 lg:max-w-4xl
-        text-gray-600 dark:text-gray-300"
+        text-gray-700 dark:text-gray-200"
       >
         احصل على ملخص جميل للمستند في ثوانٍ باللغة العربية.
       </MotionH2>
+
       <MotionDiv variants={itemVariants} whileHover={buttonVariants}>
-        <Button
-          variant="link"
-          className="text-white mt-6 sm:text-lg lg:text-xl rounded-full px-8 sm:px-10 lg:px-12
-        py-6 sm:py-7 lg:py-8 lg:mt-16 bg-linear-to-r from-slate-900 to-rose-500 hover:from-rose-500 hover:to-slate-900 hover:no-underline
-        font-bold shadow-lg transition-all duration-300"
+        <Link
+          href="/#pricing"
+          scroll
+          aria-label="ابدأ الآن وجرب لخصها"
+          className={cn(
+            "text-white mt-6 sm:text-lg lg:text-xl rounded-full px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 lg:mt-16 bg-linear-to-r from-slate-900 to-rose-500 hover:from-rose-500 hover:to-slate-900 hover:no-underline font-bold shadow-lg transition-all duration-300 flex items-center gap-2"
+          )}
         >
-          <Link href="/#pricing" scroll className="flex items-center gap-2">
-            <span>جرب لخصها</span>
-            <ArrowLeft className="animate-pulse" />
-          </Link>
-        </Button>
+          <span>جرب لخصها</span>
+          <ArrowLeft className="animate-pulse" aria-hidden="true" />
+        </Link>
       </MotionDiv>
+
     </MotionSection>
   );
 };

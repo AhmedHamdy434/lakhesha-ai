@@ -8,7 +8,8 @@ import {
 } from "@/utils/constants";
 import { ArrowLeft, CheckIcon } from "lucide-react";
 import Link from "next/link";
-import { MotionDiv, MotionSection } from "../common/motion-wrapper";
+import { MotionDiv, MotionLi, MotionSection, MotionUl } from "../common/motion-wrapper";
+
 
 const PricingSection = () => {
   return (
@@ -66,7 +67,8 @@ const PricingCard = ({
         >
           <div>
             <p className="text-lg lg:text-xl font-bold capitalize">{name}</p>
-            <p className="text-base-content/80 mt-2">{description}</p>
+            <p className="text-gray-700 dark:text-gray-300 mt-2">{description}</p>
+
           </div>
         </MotionDiv>
         <div className="flex gap-2">
@@ -76,17 +78,18 @@ const PricingCard = ({
             <p className="text-xs">/شهر</p>
           </div>
         </div>
-        <MotionDiv
+        <MotionUl
           variants={listVariants}
           className="space-y-2.5 leading-relaxed text-base flex-1"
         >
           {features.map((feature, i) => (
-            <li key={i} className="flex items-center gap-2">
-              <CheckIcon size={18} />
+            <MotionLi key={i} className="flex items-center gap-2">
+              <CheckIcon size={18} className="text-rose-500" aria-hidden="true" />
               <span>{feature}</span>
-            </li>
+            </MotionLi>
           ))}
-        </MotionDiv>
+        </MotionUl>
+
         <MotionDiv
           variants={listVariants}
           className="space-y-2 flex justify-center w-full"
@@ -99,9 +102,11 @@ const PricingCard = ({
                 : "border-rose-100 from-rose-400 to-rose-500"
             )}
             href={paymentLink}
+            aria-label={`اشترك الآن في خطة ${name}`}
           >
-            اشترك الآن <ArrowLeft size={18} />
+            اشترك الآن <ArrowLeft size={18} aria-hidden="true" />
           </Link>
+
         </MotionDiv>
       </div>
     </MotionDiv>

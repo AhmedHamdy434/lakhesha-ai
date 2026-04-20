@@ -1,5 +1,6 @@
 import { BrainCircuit, FileOutput, FileText, MoveLeft } from "lucide-react";
-import { MotionDiv, MotionH2, MotionH3 } from "../common/motion-wrapper";
+import { MotionDiv, MotionH2, MotionH3, MotionLi, MotionUl } from "../common/motion-wrapper";
+
 
 type Step = {
   icon: React.ReactNode;
@@ -45,9 +46,9 @@ const HowItWorksSection = () => {
             حوّل أي ملف PDF إلى ملخص سهل القراءة باللغة العربية في ثلاث خطوات بسيطة
           </MotionH3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
+        <MotionUl className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
           {steps.map((step, index) => (
-            <MotionDiv
+            <MotionLi
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -66,12 +67,14 @@ const HowItWorksSection = () => {
                     size={32}
                     strokeWidth={1}
                     className="text-rose-400"
+                    aria-hidden="true"
                   />
                 </MotionDiv>
               )}
-            </MotionDiv>
+            </MotionLi>
           ))}
-        </div>
+        </MotionUl>
+
       </div>
     </section>
   );
@@ -87,8 +90,9 @@ function StepItem({ icon, label, description }: Step) {
         </div>
         <div className="flex flex-col flex-1 gap-1 justify-between">
           <h4 className="text-center font-bold text-xl">{label}</h4>
-          <p className="text-center text-gray-600 dark:text-gray-400 text-sm">{description}</p>
+          <p className="text-center text-gray-700 dark:text-gray-300 text-sm">{description}</p>
         </div>
+
       </div>
     </div>
   );
